@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pillow ImageDraw() UI helper</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+
+        <h1>Pillow <code>ImageDraw()</code> UI helper</h1>
+
+        <fieldset class="frame-settings">
+            <legend>Image size</legend>
+
+            <label for="frameWidth">Width (px) :</label>
+            <input type="number" id="frameWidth" value="400" min="10" class="input-number" />
+
+            <label for="frameHeight">Height (px) :</label>
+            <input type="number" id="frameHeight" value="300" min="10" class="input-number" />
+
+            <label for="gridSize">Snap grid (0 = off, 1-100) :</label>
+            <input type="number" id="gridSize" value="10" min="0" max="100" class="input-number" />
+            
+            <label for="bgImageUpload" class="file-label">Background :</label>
+            <input type="file" id="bgImageUpload" accept="image/*" class="input-file" />
+            <label for="bgOpacity">Bg opacity:</label>
+            <input type="range" id="bgOpacity" min="0" max="100" value="100" class="input-range" />
+            <span id="opacityValue">100%</span>
+
+
+            <button id="createFrame" class="btn-primary">Create image</button>
+        </fieldset>
+
+        <fieldset class="draw-settings">
+            <legend>Draw shapes</legend>
+            <label for="drawShape">Shape :</label>
+            <select id="drawShape" class="input-select">
+                <option value="rectangle">Rectangle</option>
+                <option value="ellipse">Ellipse</option>
+                <option value="circle">Circle</option>
+                <option value="line">Line</option>
+            </select>
+
+            <button id="deleteShape" class="btn-danger" title="Supprimer la forme sélectionnée">🗑 Delete</button>
+        </fieldset>
+
+        <div class="canvas-container">
+            <canvas id="drawingCanvas"></canvas>
+        </div>
+
+        <div id="shapeInfo" class="shape-info">
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
