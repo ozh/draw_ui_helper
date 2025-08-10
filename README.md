@@ -1,14 +1,14 @@
 # `ImageDraw()` UI helper
-
-> [!TIP] 
 > Draw a rectangle on the screen and get its coordinates
 
 
-# 💡 What
+## 💡 What
 
 In a Python project I needed to draw a few shapes and I found it quite cumbersome to make coordinates `(x0 y0)` and such. So I made this little UI helper.
 
-# ⚙️ Usage
+Play with it : https://ozh.github.io/draw_ui_helper/
+
+## ⚙️ Usage
 
 ![img.png](img.png)
 
@@ -19,4 +19,6 @@ Pretty straightforward:
 3. Click on coordinates to copy them to clipboard
 4. Make your life with Pillow ImageDraw simpler
 
-Either use the 
+## 🔑 License
+
+WTFPL. Do whatever the hell you want with it.
