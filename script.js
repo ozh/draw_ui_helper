@@ -8,7 +8,7 @@ let isDrawing = false;
 let startX, startY;
 let gridSize = 10;
 const gridInput = document.getElementById("gridSize");
-const minSize = 3; // taille minimale pour créer une forme
+const minSize = 3; // minimum size for shapes
 let draggingHandle = null;
 let offsetX, offsetY;
 let bgImage = null;
@@ -43,8 +43,7 @@ bgOpacityInput.addEventListener("input", () => {
     redraw();
 });
 
-
-// Création du cadre
+// Create frame
 document.getElementById("createFrame").addEventListener("click", () => {
     const w = parseInt(document.getElementById("frameWidth").value);
     const h = parseInt(document.getElementById("frameHeight").value);
@@ -69,12 +68,12 @@ document.getElementById("createFrame").addEventListener("click", () => {
     redraw();
 });
 
-// Sélection forme à dessiner
+// Change shape tool
 document.getElementById("drawShape").addEventListener("change", e => {
     currentTool = e.target.value;
 });
 
-// Suppression bouton
+// Delte button
 document.getElementById("deleteShape").addEventListener("click", () => {
     if (selectedShapeIndex !== null) {
         shapes.splice(selectedShapeIndex, 1);
@@ -84,7 +83,7 @@ document.getElementById("deleteShape").addEventListener("click", () => {
     }
 });
 
-// Suppression touche Suppr
+// Delete with keyboard
 document.addEventListener("keydown", (e) => {
     if (e.key === "Delete" && selectedShapeIndex !== null) {
         shapes.splice(selectedShapeIndex, 1);
@@ -94,7 +93,7 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-// Modification en live taille grille
+// Live grid size input
 gridInput.addEventListener("input", () => {
     let val = parseInt(gridInput.value);
     if (isNaN(val) || val < 0) val = 0;
@@ -178,7 +177,7 @@ canvas.addEventListener("mouseup", (e) => {
     }
 });
 
-// Fonctions utilitaires
+// Misc functions
 function getMousePos(e) {
     const rect = canvas.getBoundingClientRect();
     return {
@@ -435,11 +434,10 @@ function updateShapeInfo() {
             // copie dans le clipboard
             navigator.clipboard.writeText(textSpan.textContent)
                 .then(() => {
-                    // Optionnel: Indiquer que c’est copié, par exemple un petit flash ou console.log
-                    console.log("Coordonnées copiées !");
+
                 })
                 .catch(() => {
-                    alert("Impossible de copier dans le presse-papiers");
+                    alert("Cannot copy to clipboard. Please select the text manually.");
                 });
         });
         div.appendChild(textSpan);
@@ -448,7 +446,7 @@ function updateShapeInfo() {
         trash.textContent = " 🗑";
         trash.style.cursor = "pointer";
         trash.style.marginLeft = "10px";
-        trash.title = "Supprimer cette forme";
+        trash.title = "Delete this shape";
         trash.addEventListener("click", (ev) => {
             ev.stopPropagation();
             shapes.splice(i, 1);

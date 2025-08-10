@@ -1,4 +1,3 @@
-/* Reset partiel */
 * {
     box-sizing: border-box;
 }
@@ -65,7 +64,6 @@ label {
     transition: border-color 0.25s ease;
     margin-right: 10px;
 }
-
 
 .input-select:focus,
 .input-number:focus {
